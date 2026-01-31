@@ -2,12 +2,12 @@
 	"sources": [
 		{
 			"type": "website",
-			"url": "https://effect.website/docs",
+			"url": "https://effect.website/docs/platform/introduction/",
 			"llmsTxtUrl": "https://effect.website/llms.txt"
 		},
 		{
 			"type": "website",
-			"url": "https://effect-ts.github.io/effect/docs/effect"
+			"url": "https://effect-ts.github.io/effect/docs/platform"
 		},
 		{ "type": "repository", "url": "https://github.com/Effect-TS/effect" }
 	]

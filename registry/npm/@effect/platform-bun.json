@@ -1,0 +1,9 @@
+{
+	"sources": [
+		{
+			"type": "website",
+			"url": "https://effect-ts.github.io/effect/docs/platform-bun"
+		},
+		{ "type": "repository", "url": "https://github.com/Effect-TS/effect" }
+	]
+}

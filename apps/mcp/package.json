@@ -1,11 +1,13 @@
 {
 	"name": "@docslib/mcp",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"type": "module",
 	"bin": {
 		"@docslib/mcp": "./bin.mjs"
 	},
-	"files": ["bin.mjs"],
+	"files": [
+		"bin.mjs"
+	],
 	"scripts": {
 		"check:tsc": "tsgo --noEmit",
 		"build": "bun ../../scripts/build-npm.ts mcp"
@@ -23,9 +25,9 @@
 		"typescript": "latest"
 	},
 	"optionalDependencies": {
-		"@docslib/mcp-darwin-arm64": "0.0.0",
-		"@docslib/mcp-darwin-x64": "0.0.0",
-		"@docslib/mcp-linux-x64": "0.0.0",
-		"@docslib/mcp-linux-arm64": "0.0.0"
+		"@docslib/mcp-darwin-arm64": "0.1.0",
+		"@docslib/mcp-darwin-x64": "0.1.0",
+		"@docslib/mcp-linux-x64": "0.1.0",
+		"@docslib/mcp-linux-arm64": "0.1.0"
 	}
 }

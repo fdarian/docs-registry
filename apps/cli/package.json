@@ -1,11 +1,13 @@
 {
 	"name": "docslib",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"type": "module",
 	"bin": {
 		"docslib": "./bin.mjs"
 	},
-	"files": ["bin.mjs"],
+	"files": [
+		"bin.mjs"
+	],
 	"imports": {
 		"#src/*": "./src/*"
 	},
@@ -26,9 +28,9 @@
 		"typescript": "latest"
 	},
 	"optionalDependencies": {
-		"@docslib/cli-darwin-arm64": "0.0.0",
-		"@docslib/cli-darwin-x64": "0.0.0",
-		"@docslib/cli-linux-x64": "0.0.0",
-		"@docslib/cli-linux-arm64": "0.0.0"
+		"@docslib/cli-darwin-arm64": "0.1.0",
+		"@docslib/cli-darwin-x64": "0.1.0",
+		"@docslib/cli-linux-x64": "0.1.0",
+		"@docslib/cli-linux-arm64": "0.1.0"
 	}
 }

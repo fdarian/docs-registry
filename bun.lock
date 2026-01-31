@@ -12,7 +12,7 @@
     },
     "apps/cli": {
       "name": "docslib",
-      "version": "0.0.0",
+      "version": "0.1.0",
       "bin": {
         "docslib": "./bin.mjs",
       },
@@ -29,15 +29,15 @@
         "typescript": "latest",
       },
       "optionalDependencies": {
-        "@docslib/cli-darwin-arm64": "0.0.0",
-        "@docslib/cli-darwin-x64": "0.0.0",
-        "@docslib/cli-linux-arm64": "0.0.0",
-        "@docslib/cli-linux-x64": "0.0.0",
+        "@docslib/cli-darwin-arm64": "0.1.0",
+        "@docslib/cli-darwin-x64": "0.1.0",
+        "@docslib/cli-linux-arm64": "0.1.0",
+        "@docslib/cli-linux-x64": "0.1.0",
       },
     },
     "apps/mcp": {
       "name": "@docslib/mcp",
-      "version": "0.0.0",
+      "version": "0.1.0",
       "bin": {
         "@docslib/mcp": "./bin.mjs",
       },
@@ -54,10 +54,10 @@
         "typescript": "latest",
       },
       "optionalDependencies": {
-        "@docslib/mcp-darwin-arm64": "0.0.0",
-        "@docslib/mcp-darwin-x64": "0.0.0",
-        "@docslib/mcp-linux-arm64": "0.0.0",
-        "@docslib/mcp-linux-x64": "0.0.0",
+        "@docslib/mcp-darwin-arm64": "0.1.0",
+        "@docslib/mcp-darwin-x64": "0.1.0",
+        "@docslib/mcp-linux-arm64": "0.1.0",
+        "@docslib/mcp-linux-x64": "0.1.0",
       },
     },
     "internals": {
@@ -76,6 +76,7 @@
     },
     "packages/core": {
       "name": "@docslib/core",
+      "version": "0.1.0",
       "dependencies": {
         "@effect/platform": "^0.94.2",
         "effect": "^3.19.15",

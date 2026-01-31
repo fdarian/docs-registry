@@ -1,6 +1,5 @@
-import { Schema } from "effect"
-import { Context, Effect } from "effect"
-import { RegistryEntry } from "@docs-registry/core"
+import type { RegistryEntry } from "@docs-registry/core";
+import { Context, type Effect, Schema } from "effect";
 
 export class RegistryNotFoundError extends Schema.TaggedError<RegistryNotFoundError>()(
 	"RegistryNotFoundError",
@@ -16,9 +15,9 @@ export class RegistrySource extends Context.Tag("RegistrySource")<
 		readonly get: (
 			type: string,
 			name: string,
-		) => Effect.Effect<typeof RegistryEntry.Type, RegistryNotFoundError>
+		) => Effect.Effect<typeof RegistryEntry.Type, RegistryNotFoundError>;
 		readonly search: (
 			name: string,
-		) => Effect.Effect<typeof RegistryEntry.Type, RegistryNotFoundError>
+		) => Effect.Effect<typeof RegistryEntry.Type, RegistryNotFoundError>;
 	}
 >() {}

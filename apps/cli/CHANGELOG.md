@@ -1,4 +1,4 @@
-# docslib
+# @docslib/cli
 
 ## 0.1.0
 

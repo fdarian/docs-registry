@@ -7,12 +7,25 @@ const platforms = ["darwin-arm64", "darwin-x64", "linux-x64", "linux-arm64"]
 
 for (const app of apps) {
 	for (const platform of platforms) {
+		const packageName = `@docslib/${app}-${platform}`
 		const packageDir = join(
 			repoRoot,
 			"npm",
 			"@docslib",
 			`${app}-${platform}`
 		)
+
+		const pkgJson = await Bun.file(join(packageDir, "package.json")).json()
+		const version = pkgJson.version
+
+		const viewProc = Bun.spawn(["npm", "view", `${packageName}@${version}`, "version"], {
+			stdio: ["inherit", "pipe", "pipe"],
+		})
+		const viewExit = await viewProc.exited
+		if (viewExit === 0) {
+			console.log(`${packageName}@${version} already published, skipping`)
+			continue
+		}
 
 		const publishProc = Bun.spawn(["npm", "publish", "--access", "public"], {
 			cwd: packageDir,

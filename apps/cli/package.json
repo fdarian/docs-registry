@@ -15,16 +15,14 @@
 		"build": "bun ../../scripts/build-npm.ts cli",
 		"check:tsc": "tsgo --noEmit"
 	},
-	"dependencies": {
+	"devDependencies": {
 		"@docslib/core": "workspace:*",
 		"@effect/cli": "^0.73.1",
 		"@effect/platform": "^0.94.2",
 		"@effect/platform-bun": "^0.87.1",
-		"effect": "^3.19.15"
-	},
-	"devDependencies": {
 		"@types/bun": "latest",
 		"@typescript/native-preview": "^7.0.0-dev.20260130.1",
+		"effect": "^3.19.15",
 		"typescript": "latest"
 	},
 	"optionalDependencies": {

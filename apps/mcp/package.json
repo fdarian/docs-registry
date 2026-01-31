@@ -12,17 +12,15 @@
 		"check:tsc": "tsgo --noEmit",
 		"build": "bun ../../scripts/build-npm.ts mcp"
 	},
-	"dependencies": {
+	"devDependencies": {
 		"@docslib/core": "workspace:*",
 		"@effect/platform": "^0.94.2",
 		"@modelcontextprotocol/sdk": "^1.12.1",
-		"effect": "^3.19.15",
-		"zod": "^4.0"
-	},
-	"devDependencies": {
 		"@types/bun": "latest",
 		"@typescript/native-preview": "^7.0.0-dev.20260130.1",
-		"typescript": "latest"
+		"effect": "^3.19.15",
+		"typescript": "latest",
+		"zod": "^4.0"
 	},
 	"optionalDependencies": {
 		"@docslib/mcp-darwin-arm64": "0.1.0",

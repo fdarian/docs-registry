@@ -16,16 +16,14 @@
       "bin": {
         "docslib": "./bin.mjs",
       },
-      "dependencies": {
+      "devDependencies": {
         "@docslib/core": "workspace:*",
         "@effect/cli": "^0.73.1",
         "@effect/platform": "^0.94.2",
         "@effect/platform-bun": "^0.87.1",
-        "effect": "^3.19.15",
-      },
-      "devDependencies": {
         "@types/bun": "latest",
         "@typescript/native-preview": "^7.0.0-dev.20260130.1",
+        "effect": "^3.19.15",
         "typescript": "latest",
       },
       "optionalDependencies": {
@@ -41,17 +39,15 @@
       "bin": {
         "@docslib/mcp": "./bin.mjs",
       },
-      "dependencies": {
+      "devDependencies": {
         "@docslib/core": "workspace:*",
         "@effect/platform": "^0.94.2",
         "@modelcontextprotocol/sdk": "^1.12.1",
-        "effect": "^3.19.15",
-        "zod": "^4.0",
-      },
-      "devDependencies": {
         "@types/bun": "latest",
         "@typescript/native-preview": "^7.0.0-dev.20260130.1",
+        "effect": "^3.19.15",
         "typescript": "latest",
+        "zod": "^4.0",
       },
       "optionalDependencies": {
         "@docslib/mcp-darwin-arm64": "0.1.0",
@@ -145,11 +141,27 @@
 
     "@docslib/cli": ["@docslib/cli@workspace:apps/cli"],
 
+    "@docslib/cli-darwin-arm64": ["@docslib/cli-darwin-arm64@0.1.1", "", { "os": "darwin", "cpu": "arm64" }, "sha512-5AOfyFF1TqkJFqz5JQIYiT7gQplzDWIi1pO/0BlX0AfQHG/uKvCV8SkwWCeW/6TOoitfR8vim2rsbs9JYcLVbw=="],
+
+    "@docslib/cli-darwin-x64": ["@docslib/cli-darwin-x64@0.1.1", "", { "os": "darwin", "cpu": "x64" }, "sha512-a47GQXDGk3NegjYhS+krngWmZX5zNyEqj6n6Op/8prqBNuOBzfILhQS7/LNgilUVnJH0Za44Ml6QJKiL/FfgMg=="],
+
+    "@docslib/cli-linux-arm64": ["@docslib/cli-linux-arm64@0.1.1", "", { "os": "linux", "cpu": "arm64" }, "sha512-5w4nU9ei5kiC0DzfhaFyQQwWCFH9NzCSSweSMLKpOSJR1xZkYrcMO7Ka963skxFMUFnDzi7yWn4qSSeiMztbGQ=="],
+
+    "@docslib/cli-linux-x64": ["@docslib/cli-linux-x64@0.1.1", "", { "os": "linux", "cpu": "x64" }, "sha512-y7noLoj5uJmTgiz8rveljhEk/eoWgVHM61uM4Ed9CjxcTSulODDsJw7qXrNvG1yERrKT5D7bWdkNVkyIw3PuQQ=="],
+
     "@docslib/core": ["@docslib/core@workspace:packages/core"],
 
     "@docslib/internals": ["@docslib/internals@workspace:internals"],
 
     "@docslib/mcp": ["@docslib/mcp@workspace:apps/mcp"],
+
+    "@docslib/mcp-darwin-arm64": ["@docslib/mcp-darwin-arm64@0.1.0", "", { "os": "darwin", "cpu": "arm64" }, "sha512-bDy5XJ3ZLUTHVCbaeX5x2WD+NE1b6q86b5yQfeniOVtytERfTVQqRXdzc6yuu0crQpYNbs+WYm0NsmRX4CYMPA=="],
+
+    "@docslib/mcp-darwin-x64": ["@docslib/mcp-darwin-x64@0.1.0", "", { "os": "darwin", "cpu": "x64" }, "sha512-ug7k1R4FPjxR6NpzmU0+Ax5qAt79lRUT91/zVEIFZ+qWuTSHZeWAWtVP2tq5NJEo4ArAhznl6LmTDmNx4KRD0A=="],
+
+    "@docslib/mcp-linux-arm64": ["@docslib/mcp-linux-arm64@0.1.0", "", { "os": "linux", "cpu": "arm64" }, "sha512-RVcx3IL4O5PjFJtAJLt+qGtUmdc20AcOxvM307RPCojkvNNaz43/TmfCAJIZE7mSlPwmG4hor971rxi0QSfrgw=="],
+
+    "@docslib/mcp-linux-x64": ["@docslib/mcp-linux-x64@0.1.0", "", { "os": "linux", "cpu": "x64" }, "sha512-yE3MmIcES0+g0RYVv8U0bGR1yzpvndYCCefisRt1XX5HN/5eNGvgDJ0eUSXy6//SVOjb3DPPnq1QYwHdVNh8YQ=="],
 
     "@effect/cli": ["@effect/cli@0.73.1", "", { "dependencies": { "ini": "^4.1.3", "toml": "^3.0.0", "yaml": "^2.5.0" }, "peerDependencies": { "@effect/platform": "^0.94.2", "@effect/printer": "^0.47.0", "@effect/printer-ansi": "^0.47.0", "effect": "^3.19.15" } }, "sha512-lKDNq1Dwb+f1aPbse+EPORbNhQSJvefkEeFiIdWQJB4YX/D/9cibGGA1rb4A1PHn8qJhrE376DG3d0TlszxR+w=="],
 

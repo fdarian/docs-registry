@@ -5,7 +5,7 @@ import {
 	RegistrySource,
 	GitHubRegistrySourceLayer,
 	LocalRegistrySourceLayer,
-} from "@docs-registry/core";
+} from "@docslib/core";
 
 const registryDir = new URL("../../../../registry", import.meta.url).pathname;
 

@@ -1,5 +1,5 @@
 {
-	"name": "@docs-registry/internals",
+	"name": "@docslib/internals",
 	"private": true,
 	"type": "module",
 	"imports": {

@@ -11,13 +11,13 @@
       },
     },
     "apps/cli": {
-      "name": "@docs-registry/cli",
+      "name": "docslib",
       "version": "0.0.0",
       "bin": {
-        "docs": "./bin.mjs",
+        "docslib": "./bin.mjs",
       },
       "dependencies": {
-        "@docs-registry/core": "workspace:*",
+        "@docslib/core": "workspace:*",
         "@effect/cli": "^0.73.1",
         "@effect/platform": "^0.94.2",
         "@effect/platform-bun": "^0.87.1",
@@ -29,20 +29,20 @@
         "typescript": "latest",
       },
       "optionalDependencies": {
-        "@docs-registry/cli-darwin-arm64": "0.0.0",
-        "@docs-registry/cli-darwin-x64": "0.0.0",
-        "@docs-registry/cli-linux-arm64": "0.0.0",
-        "@docs-registry/cli-linux-x64": "0.0.0",
+        "@docslib/cli-darwin-arm64": "0.0.0",
+        "@docslib/cli-darwin-x64": "0.0.0",
+        "@docslib/cli-linux-arm64": "0.0.0",
+        "@docslib/cli-linux-x64": "0.0.0",
       },
     },
     "apps/mcp": {
-      "name": "@docs-registry/mcp",
+      "name": "@docslib/mcp",
       "version": "0.0.0",
       "bin": {
-        "@docs-registry/mcp": "./bin.mjs",
+        "@docslib/mcp": "./bin.mjs",
       },
       "dependencies": {
-        "@docs-registry/core": "workspace:*",
+        "@docslib/core": "workspace:*",
         "@effect/platform": "^0.94.2",
         "@modelcontextprotocol/sdk": "^1.12.1",
         "effect": "^3.19.15",
@@ -54,17 +54,14 @@
         "typescript": "latest",
       },
       "optionalDependencies": {
-        "@docs-registry/mcp-darwin-arm64": "0.0.0",
-        "@docs-registry/mcp-darwin-x64": "0.0.0",
-        "@docs-registry/mcp-linux-arm64": "0.0.0",
-        "@docs-registry/mcp-linux-x64": "0.0.0",
+        "@docslib/mcp-darwin-arm64": "0.0.0",
+        "@docslib/mcp-darwin-x64": "0.0.0",
+        "@docslib/mcp-linux-arm64": "0.0.0",
+        "@docslib/mcp-linux-x64": "0.0.0",
       },
     },
     "internals": {
-      "name": "@docs-registry/internals",
-      "bin": {
-        "docs-in": "./dist/docs-in",
-      },
+      "name": "@docslib/internals",
       "dependencies": {
         "@effect/cli": "^0.73.1",
         "@effect/platform": "^0.94.2",
@@ -78,7 +75,7 @@
       },
     },
     "packages/core": {
-      "name": "@docs-registry/core",
+      "name": "@docslib/core",
       "dependencies": {
         "@effect/platform": "^0.94.2",
         "effect": "^3.19.15",
@@ -145,13 +142,11 @@
 
     "@changesets/write": ["@changesets/write@0.4.0", "", { "dependencies": { "@changesets/types": "^6.1.0", "fs-extra": "^7.0.1", "human-id": "^4.1.1", "prettier": "^2.7.1" } }, "sha512-CdTLvIOPiCNuH71pyDu3rA+Q0n65cmAbXnwWH84rKGiFumFzkmHNT8KHTMEchcxN+Kl8I54xGUhJ7l3E7X396Q=="],
 
-    "@docs-registry/cli": ["@docs-registry/cli@workspace:apps/cli"],
+    "@docslib/core": ["@docslib/core@workspace:packages/core"],
 
-    "@docs-registry/core": ["@docs-registry/core@workspace:packages/core"],
+    "@docslib/internals": ["@docslib/internals@workspace:internals"],
 
-    "@docs-registry/internals": ["@docs-registry/internals@workspace:internals"],
-
-    "@docs-registry/mcp": ["@docs-registry/mcp@workspace:apps/mcp"],
+    "@docslib/mcp": ["@docslib/mcp@workspace:apps/mcp"],
 
     "@effect/cli": ["@effect/cli@0.73.1", "", { "dependencies": { "ini": "^4.1.3", "toml": "^3.0.0", "yaml": "^2.5.0" }, "peerDependencies": { "@effect/platform": "^0.94.2", "@effect/printer": "^0.47.0", "@effect/printer-ansi": "^0.47.0", "effect": "^3.19.15" } }, "sha512-lKDNq1Dwb+f1aPbse+EPORbNhQSJvefkEeFiIdWQJB4YX/D/9cibGGA1rb4A1PHn8qJhrE376DG3d0TlszxR+w=="],
 
@@ -308,6 +303,8 @@
     "detect-libc": ["detect-libc@2.1.2", "", {}, "sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ=="],
 
     "dir-glob": ["dir-glob@3.0.1", "", { "dependencies": { "path-type": "^4.0.0" } }, "sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA=="],
+
+    "docslib": ["docslib@workspace:apps/cli"],
 
     "dunder-proto": ["dunder-proto@1.0.1", "", { "dependencies": { "call-bind-apply-helpers": "^1.0.1", "es-errors": "^1.3.0", "gopd": "^1.2.0" } }, "sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A=="],
 

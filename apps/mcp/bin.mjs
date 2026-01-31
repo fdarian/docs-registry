@@ -9,7 +9,7 @@ import { platform, arch } from "node:os";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
-const bin = require.resolve(`@docs-registry/mcp-${platform()}-${arch()}`);
+const bin = require.resolve(`@docslib/mcp-${platform()}-${arch()}`);
 
 try {
   execFileSync(bin, process.argv.slice(2), { stdio: "inherit" });

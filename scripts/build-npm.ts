@@ -44,14 +44,14 @@ for (const [os, arch] of platforms) {
 	const platformPackageDir = join(
 		repoRoot,
 		"npm",
-		"@docs-registry",
+		"@docslib",
 		`${app}-${os}-${arch}`
 	)
 
 	mkdirSync(platformPackageDir, { recursive: true })
 
 	const platformPackageJson = {
-		name: `@docs-registry/${app}-${os}-${arch}`,
+		name: `@docslib/${app}-${os}-${arch}`,
 		version,
 		main: "./bin",
 		os: [os],

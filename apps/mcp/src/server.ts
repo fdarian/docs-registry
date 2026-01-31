@@ -3,7 +3,7 @@ import {
 	RegistrySource,
 	RegistryNotFoundError,
 	GitHubRegistrySourceLayer,
-} from "@docs-registry/core";
+} from "@docslib/core";
 import { FetchHttpClient } from "@effect/platform";
 import { Effect } from "effect";
 import { z } from "zod";
@@ -18,7 +18,7 @@ const toolParams = {
 
 export function createServer() {
 	const server = new McpServer({
-		name: "docs-registry",
+		name: "docslib",
 		version: "0.0.0",
 	});
 

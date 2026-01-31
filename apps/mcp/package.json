@@ -1,9 +1,9 @@
 {
-	"name": "@docs-registry/mcp",
+	"name": "@docslib/mcp",
 	"version": "0.0.0",
 	"type": "module",
 	"bin": {
-		"@docs-registry/mcp": "./bin.mjs"
+		"@docslib/mcp": "./bin.mjs"
 	},
 	"files": ["bin.mjs"],
 	"scripts": {
@@ -11,7 +11,7 @@
 		"build": "bun ../../scripts/build-npm.ts mcp"
 	},
 	"dependencies": {
-		"@docs-registry/core": "workspace:*",
+		"@docslib/core": "workspace:*",
 		"@effect/platform": "^0.94.2",
 		"@modelcontextprotocol/sdk": "^1.12.1",
 		"effect": "^3.19.15",
@@ -23,9 +23,9 @@
 		"typescript": "latest"
 	},
 	"optionalDependencies": {
-		"@docs-registry/mcp-darwin-arm64": "0.0.0",
-		"@docs-registry/mcp-darwin-x64": "0.0.0",
-		"@docs-registry/mcp-linux-x64": "0.0.0",
-		"@docs-registry/mcp-linux-arm64": "0.0.0"
+		"@docslib/mcp-darwin-arm64": "0.0.0",
+		"@docslib/mcp-darwin-x64": "0.0.0",
+		"@docslib/mcp-linux-x64": "0.0.0",
+		"@docslib/mcp-linux-arm64": "0.0.0"
 	}
 }

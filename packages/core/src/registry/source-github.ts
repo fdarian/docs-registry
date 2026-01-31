@@ -4,7 +4,7 @@ import { RegistryEntry } from "#src/spec/schema.ts";
 import { RegistryNotFoundError, RegistrySource } from "#src/registry/source.ts";
 
 const BASE_URL =
-	"https://raw.githubusercontent.com/fdarian/docs-registry/refs/heads/main/registry";
+	"https://raw.githubusercontent.com/fdarian/docslib/refs/heads/main/registry";
 
 export const GitHubRegistrySourceLayer = Layer.effect(
 	RegistrySource,

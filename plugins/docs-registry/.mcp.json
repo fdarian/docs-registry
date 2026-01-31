@@ -1,7 +1,0 @@
-{
-  "mcpServers": {
-    "docs-registry": {
-      "command": "npx @docs-registry/mcp"
-    }
-  }
-}

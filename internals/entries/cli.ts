@@ -5,7 +5,7 @@ import { Effect } from "effect";
 import { rootCmd } from "#src/commands/root.ts";
 
 const cli = Command.run(rootCmd, {
-	name: "docs-in",
+	name: "docslib-in",
 	version: "0.0.0",
 });
 

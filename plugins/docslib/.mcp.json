@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "docslib": {
+      "command": "npx @docslib/mcp"
+    }
+  }
+}

@@ -1,9 +1,9 @@
 {
-	"name": "@docs-registry/cli",
+	"name": "docslib",
 	"version": "0.0.0",
 	"type": "module",
 	"bin": {
-		"docs": "./bin.mjs"
+		"docslib": "./bin.mjs"
 	},
 	"files": ["bin.mjs"],
 	"imports": {
@@ -14,7 +14,7 @@
 		"check:tsc": "tsgo --noEmit"
 	},
 	"dependencies": {
-		"@docs-registry/core": "workspace:*",
+		"@docslib/core": "workspace:*",
 		"@effect/cli": "^0.73.1",
 		"@effect/platform": "^0.94.2",
 		"@effect/platform-bun": "^0.87.1",
@@ -26,9 +26,9 @@
 		"typescript": "latest"
 	},
 	"optionalDependencies": {
-		"@docs-registry/cli-darwin-arm64": "0.0.0",
-		"@docs-registry/cli-darwin-x64": "0.0.0",
-		"@docs-registry/cli-linux-x64": "0.0.0",
-		"@docs-registry/cli-linux-arm64": "0.0.0"
+		"@docslib/cli-darwin-arm64": "0.0.0",
+		"@docslib/cli-darwin-x64": "0.0.0",
+		"@docslib/cli-linux-x64": "0.0.0",
+		"@docslib/cli-linux-arm64": "0.0.0"
 	}
 }

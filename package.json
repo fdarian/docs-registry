@@ -1,5 +1,5 @@
 {
-	"name": "docs-registry",
+	"name": "@docslib/monorepo",
 	"workspaces": [
 		"packages/*",
 		"apps/*",
@@ -11,7 +11,7 @@
 		"turbo": "^2.8.1"
 	},
 	"scripts": {
-		"docs-in": "bun internals/entries/cli.ts",
+		"docslib-in": "bun internals/entries/cli.ts",
 		"build": "turbo build",
 		"check": "turbo check:tsc",
 		"changeset": "changeset",

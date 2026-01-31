@@ -10,7 +10,7 @@ for (const app of apps) {
 		const packageDir = join(
 			repoRoot,
 			"npm",
-			"@docs-registry",
+			"@docslib",
 			`${app}-${platform}`
 		)
 

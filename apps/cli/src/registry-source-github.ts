@@ -1,5 +1,5 @@
 import { RegistryEntry } from "@docs-registry/core";
-import { HttpClient, HttpClientResponse } from "@effect/platform";
+import { HttpClient } from "@effect/platform";
 import { Effect, Layer, Schema } from "effect";
 import { RegistryNotFoundError, RegistrySource } from "#/registry-source.ts";
 
@@ -19,8 +19,12 @@ export const GitHubRegistrySourceLayer = Layer.effect(
 					.pipe(
 						Effect.mapError(() => new RegistryNotFoundError({ type, name })),
 					);
-				const text = yield* HttpClientResponse.text(response);
-				return yield* Schema.decode(Schema.parseJson(RegistryEntry))(text);
+				const text = yield* response.text.pipe(
+				Effect.mapError(() => new RegistryNotFoundError({ type, name })),
+			);
+				return yield* Schema.decode(Schema.parseJson(RegistryEntry))(text).pipe(
+					Effect.mapError(() => new RegistryNotFoundError({ type, name })),
+				);
 			});
 
 		const search = (name: string) =>

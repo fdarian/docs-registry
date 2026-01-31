@@ -19,7 +19,9 @@ export const LocalRegistrySourceLayer = Layer.effect(
 					.pipe(
 						Effect.mapError(() => new RegistryNotFoundError({ type, name })),
 					);
-				return yield* Schema.decode(Schema.parseJson(RegistryEntry))(content);
+				return yield* Schema.decode(Schema.parseJson(RegistryEntry))(content).pipe(
+					Effect.mapError(() => new RegistryNotFoundError({ type, name })),
+				);
 			});
 
 		const search = (name: string) =>

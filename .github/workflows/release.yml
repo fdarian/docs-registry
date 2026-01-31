@@ -36,7 +36,8 @@ jobs:
           VERSION=$(bun -e "console.log(require('./apps/cli/package.json').version)")
           tar -czf docslib-darwin-arm64.tar.gz -C apps/cli/dist cli-darwin-arm64
           tar -czf docslib-darwin-x64.tar.gz -C apps/cli/dist cli-darwin-x64
-          gh release upload "docslib@${VERSION}" \
+          gh release create "@docslib/cli@${VERSION}" --title "@docslib/cli@${VERSION}" --notes "" 2>/dev/null || true
+          gh release upload "@docslib/cli@${VERSION}" \
             docslib-darwin-arm64.tar.gz \
             docslib-darwin-x64.tar.gz
         env:
@@ -60,12 +61,12 @@ jobs:
             license "MIT"
 
             on_arm do
-              url "https://github.com/fdarian/docslib/releases/download/docslib%40${VERSION}/docslib-darwin-arm64.tar.gz"
+              url "https://github.com/fdarian/docslib/releases/download/%40docslib%2Fcli%40${VERSION}/docslib-darwin-arm64.tar.gz"
               sha256 "${SHA_ARM64}"
             end
 
             on_intel do
-              url "https://github.com/fdarian/docslib/releases/download/docslib%40${VERSION}/docslib-darwin-x64.tar.gz"
+              url "https://github.com/fdarian/docslib/releases/download/%40docslib%2Fcli%40${VERSION}/docslib-darwin-x64.tar.gz"
               sha256 "${SHA_X64}"
             end
 

@@ -42,6 +42,23 @@
         "typescript": "latest",
       },
     },
+    "internals": {
+      "name": "@docs-registry/internals",
+      "bin": {
+        "docs-in": "./dist/docs-in",
+      },
+      "dependencies": {
+        "@effect/cli": "^0.73.1",
+        "@effect/platform": "^0.94.2",
+        "@effect/platform-bun": "^0.87.1",
+        "effect": "^3.19.15",
+      },
+      "devDependencies": {
+        "@types/bun": "latest",
+        "@typescript/native-preview": "^7.0.0-dev.20260130.1",
+        "typescript": "latest",
+      },
+    },
     "packages/core": {
       "name": "@docs-registry/core",
       "dependencies": {
@@ -77,6 +94,8 @@
     "@docs-registry/cli": ["@docs-registry/cli@workspace:apps/cli"],
 
     "@docs-registry/core": ["@docs-registry/core@workspace:packages/core"],
+
+    "@docs-registry/internals": ["@docs-registry/internals@workspace:internals"],
 
     "@docs-registry/mcp": ["@docs-registry/mcp@workspace:apps/mcp"],
 

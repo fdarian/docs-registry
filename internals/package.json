@@ -1,0 +1,25 @@
+{
+	"name": "@docs-registry/internals",
+	"type": "module",
+	"bin": {
+		"docs-in": "./dist/docs-in"
+	},
+	"imports": {
+		"#src/*": "./src/*"
+	},
+	"scripts": {
+		"build": "bun build entries/cli.ts --compile --outfile dist/docs-in",
+		"check:tsc": "tsgo --noEmit"
+	},
+	"dependencies": {
+		"@effect/cli": "^0.73.1",
+		"@effect/platform": "^0.94.2",
+		"@effect/platform-bun": "^0.87.1",
+		"effect": "^3.19.15"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"@typescript/native-preview": "^7.0.0-dev.20260130.1",
+		"typescript": "latest"
+	}
+}

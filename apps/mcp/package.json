@@ -1,12 +1,14 @@
 {
 	"name": "@docs-registry/mcp",
+	"version": "0.0.0",
 	"type": "module",
 	"bin": {
-		"@docs-registry/mcp": "./dist/mcp"
+		"@docs-registry/mcp": "./bin.mjs"
 	},
+	"files": ["bin.mjs"],
 	"scripts": {
 		"check:tsc": "tsgo --noEmit",
-		"build": "bun build --compile entries/mcp.ts --outfile dist/mcp"
+		"build": "bun ../../scripts/build-npm.ts mcp"
 	},
 	"dependencies": {
 		"@docs-registry/core": "workspace:*",
@@ -19,5 +21,11 @@
 		"@types/bun": "latest",
 		"@typescript/native-preview": "^7.0.0-dev.20260130.1",
 		"typescript": "latest"
+	},
+	"optionalDependencies": {
+		"@docs-registry/mcp-darwin-arm64": "0.0.0",
+		"@docs-registry/mcp-darwin-x64": "0.0.0",
+		"@docs-registry/mcp-linux-x64": "0.0.0",
+		"@docs-registry/mcp-linux-arm64": "0.0.0"
 	}
 }

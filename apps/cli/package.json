@@ -1,14 +1,16 @@
 {
 	"name": "@docs-registry/cli",
+	"version": "0.0.0",
 	"type": "module",
 	"bin": {
-		"docs": "./dist/cli"
+		"docs": "./bin.mjs"
 	},
+	"files": ["bin.mjs"],
 	"imports": {
 		"#src/*": "./src/*"
 	},
 	"scripts": {
-		"build": "bun build entries/cli.ts --compile --outfile dist/cli",
+		"build": "bun ../../scripts/build-npm.ts cli",
 		"check:tsc": "tsgo --noEmit"
 	},
 	"dependencies": {
@@ -22,5 +24,11 @@
 		"@types/bun": "latest",
 		"@typescript/native-preview": "^7.0.0-dev.20260130.1",
 		"typescript": "latest"
+	},
+	"optionalDependencies": {
+		"@docs-registry/cli-darwin-arm64": "0.0.0",
+		"@docs-registry/cli-darwin-x64": "0.0.0",
+		"@docs-registry/cli-linux-x64": "0.0.0",
+		"@docs-registry/cli-linux-arm64": "0.0.0"
 	}
 }

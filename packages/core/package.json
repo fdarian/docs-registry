@@ -1,5 +1,6 @@
 {
 	"name": "@docs-registry/core",
+	"private": true,
 	"type": "module",
 	"exports": {
 		".": "./exports/index.ts"

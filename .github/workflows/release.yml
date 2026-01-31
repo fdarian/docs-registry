@@ -1,0 +1,84 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.changeset/**']
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+
+      - name: Create Release PR or Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: bun run ci:version
+          publish: bun run ci:release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Upload binaries to GitHub Release
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          VERSION=$(bun -e "console.log(require('./apps/cli/package.json').version)")
+          tar -czf docs-darwin-arm64.tar.gz -C apps/cli/dist cli-darwin-arm64
+          tar -czf docs-darwin-x64.tar.gz -C apps/cli/dist cli-darwin-x64
+          gh release upload "@docs-registry/cli@${VERSION}" \
+            docs-darwin-arm64.tar.gz \
+            docs-darwin-x64.tar.gz
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update Homebrew formula
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          VERSION=$(bun -e "console.log(require('./apps/cli/package.json').version)")
+          SHA_ARM64=$(shasum -a 256 docs-darwin-arm64.tar.gz | cut -d ' ' -f 1)
+          SHA_X64=$(shasum -a 256 docs-darwin-x64.tar.gz | cut -d ' ' -f 1)
+
+          git clone https://x-access-token:${HOMEBREW_TAP_TOKEN}@github.com/fdarian/homebrew-tap.git /tmp/tap
+          cd /tmp/tap
+
+          cat > Formula/docs.rb << RUBY
+class Docs < Formula
+  desc "CLI tool to query documentation registry"
+  homepage "https://github.com/fdarian/docs-registry"
+  version "${VERSION}"
+  license "MIT"
+
+  on_arm do
+    url "https://github.com/fdarian/docs-registry/releases/download/%40docs-registry%2Fcli%40${VERSION}/docs-darwin-arm64.tar.gz"
+    sha256 "${SHA_ARM64}"
+  end
+
+  on_intel do
+    url "https://github.com/fdarian/docs-registry/releases/download/%40docs-registry%2Fcli%40${VERSION}/docs-darwin-x64.tar.gz"
+    sha256 "${SHA_X64}"
+  end
+
+  def install
+    bin.install Dir["*"].first => "docs"
+  end
+
+  test do
+    system "#{bin}/docs", "--help"
+  end
+end
+RUBY
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/docs.rb
+          git commit -m "docs ${VERSION}"
+          git push
+        env:
+          HOMEBREW_TAP_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}

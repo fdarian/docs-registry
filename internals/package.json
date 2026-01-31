@@ -1,5 +1,6 @@
 {
 	"name": "@docs-registry/internals",
+	"private": true,
 	"type": "module",
 	"imports": {
 		"#src/*": "./src/*"

@@ -1,0 +1,10 @@
+{
+	"sources": [
+		{
+			"type": "website",
+			"url": "https://bun.com/docs",
+			"llmsTxtUrl": "https://bun.com/docs/llms.txt"
+		},
+		{ "type": "repository", "url": "https://github.com/oven-sh/bun" }
+	]
+}

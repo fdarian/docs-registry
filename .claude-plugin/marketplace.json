@@ -1,0 +1,23 @@
+{
+  "name": "docslib-marketplace",
+  "owner": {
+    "name": "fdarian"
+  },
+  "metadata": {
+    "description": "Documentation registry plugins for Claude Code",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "docslib",
+      "source": "./plugins/docslib",
+      "description": "Documentation registry — find official docs for any library",
+      "version": "0.1.0",
+      "author": {
+        "name": "fdarian"
+      },
+      "repository": "https://github.com/fdarian/docslib",
+      "tags": ["documentation", "docs", "registry", "mcp"]
+    }
+  ]
+}

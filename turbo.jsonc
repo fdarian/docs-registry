@@ -1,0 +1,12 @@
+{
+	"$schema": "https://turborepo.dev/schema.json",
+	"tasks": {
+		"check:tsc": {
+			"dependsOn": ["^check:tsc"]
+		},
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**"]
+		}
+	}
+}

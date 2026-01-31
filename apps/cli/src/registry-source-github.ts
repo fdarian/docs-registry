@@ -1,9 +1,5 @@
 import { RegistryEntry } from "@docs-registry/core";
-import {
-	HttpClient,
-	HttpClientRequest,
-	HttpClientResponse,
-} from "@effect/platform";
+import { HttpClient, HttpClientResponse } from "@effect/platform";
 import { Effect, Layer, Schema } from "effect";
 import { RegistryNotFoundError, RegistrySource } from "#/registry-source.ts";
 

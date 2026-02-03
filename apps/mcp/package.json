@@ -1,6 +1,6 @@
 {
 	"name": "@docslib/mcp",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"type": "module",
 	"bin": {
 		"docslib-mcp": "./bin.mjs"
@@ -23,10 +23,10 @@
 		"zod": "^4.0"
 	},
 	"optionalDependencies": {
-		"@docslib/mcp-darwin-arm64": "0.2.0",
-		"@docslib/mcp-darwin-x64": "0.2.0",
-		"@docslib/mcp-linux-x64": "0.2.0",
-		"@docslib/mcp-linux-arm64": "0.2.0"
+		"@docslib/mcp-darwin-arm64": "0.2.1",
+		"@docslib/mcp-darwin-x64": "0.2.1",
+		"@docslib/mcp-linux-x64": "0.2.1",
+		"@docslib/mcp-linux-arm64": "0.2.1"
 	},
 	"dependencies": {
 		"@effect/cli": "^0.73.1",

@@ -12,7 +12,7 @@
     },
     "apps/cli": {
       "name": "@docslib/cli",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "bin": {
         "docslib": "./bin.mjs",
       },
@@ -27,15 +27,15 @@
         "typescript": "latest",
       },
       "optionalDependencies": {
-        "@docslib/cli-darwin-arm64": "0.2.0",
-        "@docslib/cli-darwin-x64": "0.2.0",
-        "@docslib/cli-linux-arm64": "0.2.0",
-        "@docslib/cli-linux-x64": "0.2.0",
+        "@docslib/cli-darwin-arm64": "0.2.1",
+        "@docslib/cli-darwin-x64": "0.2.1",
+        "@docslib/cli-linux-arm64": "0.2.1",
+        "@docslib/cli-linux-x64": "0.2.1",
       },
     },
     "apps/mcp": {
       "name": "@docslib/mcp",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "bin": {
         "docslib-mcp": "./bin.mjs",
       },
@@ -54,10 +54,10 @@
         "zod": "^4.0",
       },
       "optionalDependencies": {
-        "@docslib/mcp-darwin-arm64": "0.2.0",
-        "@docslib/mcp-darwin-x64": "0.2.0",
-        "@docslib/mcp-linux-arm64": "0.2.0",
-        "@docslib/mcp-linux-x64": "0.2.0",
+        "@docslib/mcp-darwin-arm64": "0.2.1",
+        "@docslib/mcp-darwin-x64": "0.2.1",
+        "@docslib/mcp-linux-arm64": "0.2.1",
+        "@docslib/mcp-linux-x64": "0.2.1",
       },
     },
     "internals": {

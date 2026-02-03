@@ -1,5 +1,11 @@
 # @docslib/cli
 
+## 0.2.1
+
+### Patch Changes
+
+- c3e2ffe: Fix binary cannot be executed
+
 ## 0.2.0
 
 ### Minor Changes

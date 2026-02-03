@@ -1,5 +1,15 @@
 # @docslib/cli
 
+## 0.2.0
+
+### Minor Changes
+
+- db3c95c: Adjust binary entrypoint and `mcp` to `docslib-mcp` with CLI entrypoint
+
+### Patch Changes
+
+- c92d4de: Move runtime deps to devDependencies since binaries are compiled
+
 ## 0.1.1
 
 ### Patch Changes

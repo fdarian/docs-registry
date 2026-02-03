@@ -12,6 +12,8 @@
 	},
 	"scripts": {
 		"docslib-in": "bun internals/entries/cli.ts",
+		"link": "cd apps/cli && bun link && cd ../mcp && bun link",
+		"unlink": "cd apps/cli && bun unlink && cd ../mcp && bun unlink",
 		"build": "turbo build",
 		"check": "turbo check:tsc",
 		"changeset": "changeset",

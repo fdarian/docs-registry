@@ -39,6 +39,10 @@
       "bin": {
         "@docslib/mcp": "./bin.mjs",
       },
+      "dependencies": {
+        "@effect/cli": "^0.73.1",
+        "@effect/platform-bun": "^0.87.1",
+      },
       "devDependencies": {
         "@docslib/core": "workspace:*",
         "@effect/platform": "^0.94.2",

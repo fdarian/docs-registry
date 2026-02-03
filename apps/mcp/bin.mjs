@@ -1,18 +1,32 @@
-#!/bin/sh -
-':'; /*-
-test1=$(bun --version 2>&1) && exec bun "$0" "$@"
-test2=$(node --version 2>&1) && exec node "$0" "$@"
-exec printf '%s\n' "$test1" "$test2" 1>&2
-*/
+#!/usr/bin/env node
 import { execFileSync } from "node:child_process";
 import { platform, arch } from "node:os";
 import { createRequire } from "node:module";
+import { fileURLToPath } from "node:url";
+import { resolve, dirname } from "node:path";
 
+const args = process.argv.slice(2);
 const require = createRequire(import.meta.url);
-const bin = require.resolve(`@docslib/mcp-${platform()}-${arch()}`);
+
+function runSource() {
+  const entry = resolve(dirname(fileURLToPath(import.meta.url)), "entries/mcp.ts");
+  try {
+    execFileSync("bun", [entry, ...args], { stdio: "inherit" });
+  } catch (e) {
+    process.exit(e.status ?? 1);
+  }
+  process.exit(0);
+}
+
+let bin;
+try {
+  bin = require.resolve(`@docslib/mcp-${platform()}-${arch()}`);
+} catch {
+  runSource();
+}
 
 try {
-  execFileSync(bin, process.argv.slice(2), { stdio: "inherit" });
-} catch (e) {
-  process.exit(e.status ?? 1);
+  execFileSync(bin, args, { stdio: "inherit" });
+} catch {
+  runSource();
 }

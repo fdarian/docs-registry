@@ -36,10 +36,14 @@ jobs:
           VERSION=$(bun -e "console.log(require('./apps/cli/package.json').version)")
           tar -czf docslib-darwin-arm64.tar.gz -C apps/cli/dist cli-darwin-arm64
           tar -czf docslib-darwin-x64.tar.gz -C apps/cli/dist cli-darwin-x64
+          tar -czf docslib-linux-x64.tar.gz -C apps/cli/dist cli-linux-x64
+          tar -czf docslib-linux-arm64.tar.gz -C apps/cli/dist cli-linux-arm64
           gh release create "@docslib/cli@${VERSION}" --title "@docslib/cli@${VERSION}" --notes "" 2>/dev/null || true
           gh release upload "@docslib/cli@${VERSION}" \
             docslib-darwin-arm64.tar.gz \
-            docslib-darwin-x64.tar.gz
+            docslib-darwin-x64.tar.gz \
+            docslib-linux-x64.tar.gz \
+            docslib-linux-arm64.tar.gz
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -47,8 +51,10 @@ jobs:
         if: steps.changesets.outputs.published == 'true'
         run: |
           VERSION=$(bun -e "console.log(require('./apps/cli/package.json').version)")
-          SHA_ARM64=$(shasum -a 256 docslib-darwin-arm64.tar.gz | cut -d ' ' -f 1)
-          SHA_X64=$(shasum -a 256 docslib-darwin-x64.tar.gz | cut -d ' ' -f 1)
+          SHA_DARWIN_ARM64=$(shasum -a 256 docslib-darwin-arm64.tar.gz | cut -d ' ' -f 1)
+          SHA_DARWIN_X64=$(shasum -a 256 docslib-darwin-x64.tar.gz | cut -d ' ' -f 1)
+          SHA_LINUX_X64=$(shasum -a 256 docslib-linux-x64.tar.gz | cut -d ' ' -f 1)
+          SHA_LINUX_ARM64=$(shasum -a 256 docslib-linux-arm64.tar.gz | cut -d ' ' -f 1)
 
           git clone https://x-access-token:${HOMEBREW_TAP_TOKEN}@github.com/fdarian/homebrew-tap.git /tmp/tap
           cd /tmp/tap
@@ -60,14 +66,26 @@ jobs:
             version "${VERSION}"
             license "MIT"
 
-            on_arm do
-              url "https://github.com/fdarian/docslib/releases/download/%40docslib%2Fcli%40${VERSION}/docslib-darwin-arm64.tar.gz"
-              sha256 "${SHA_ARM64}"
+            on_macos do
+              on_arm do
+                url "https://github.com/fdarian/docslib/releases/download/%40docslib%2Fcli%40${VERSION}/docslib-darwin-arm64.tar.gz"
+                sha256 "${SHA_DARWIN_ARM64}"
+              end
+              on_intel do
+                url "https://github.com/fdarian/docslib/releases/download/%40docslib%2Fcli%40${VERSION}/docslib-darwin-x64.tar.gz"
+                sha256 "${SHA_DARWIN_X64}"
+              end
             end
 
-            on_intel do
-              url "https://github.com/fdarian/docslib/releases/download/%40docslib%2Fcli%40${VERSION}/docslib-darwin-x64.tar.gz"
-              sha256 "${SHA_X64}"
+            on_linux do
+              on_arm do
+                url "https://github.com/fdarian/docslib/releases/download/%40docslib%2Fcli%40${VERSION}/docslib-linux-arm64.tar.gz"
+                sha256 "${SHA_LINUX_ARM64}"
+              end
+              on_intel do
+                url "https://github.com/fdarian/docslib/releases/download/%40docslib%2Fcli%40${VERSION}/docslib-linux-x64.tar.gz"
+                sha256 "${SHA_LINUX_X64}"
+              end
             end
 
             def install

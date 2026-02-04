@@ -27,6 +27,9 @@ try {
 
 try {
   execFileSync(bin, args, { stdio: "inherit" });
-} catch {
+} catch (e) {
+  if (e.status != null) {
+    process.exit(e.status);
+  }
   runSource();
 }
